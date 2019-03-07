@@ -28,14 +28,14 @@ kubectl create -f mysql-volumeclaim.yaml
 **B- Check Persistent Volume**
 ```
  kubectl get pv
-
+--------------------------------------------------------------output----------------------------------------------------------------------------------
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                       STORAGECLASS   REASON   AGE
 pvc-ee72ff75-40ac-11e9-9b22-12355d9983be   2Gi        RWO            Delete           Bound    default/mysql-volumeclaim   gp2                     33s
 ```
 **C- Check Persistent Volume Claims**
 ```
 kubectl get pvc
-
+--------------------------------------------output------------------------------------------------------------------
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 mysql-volumeclaim   Bound    pvc-ee72ff75-40ac-11e9-9b22-12355d9983be   2Gi        RWO            gp2            36s
 ```
@@ -46,6 +46,7 @@ kubectl apply -f secret.yaml
 **E- check created secret**
 ```
 kubectl get secret
+----------------------------output-----------------------------------
 NAME                  TYPE                                  DATA   AGE
 mysql                 Opaque                                1      46s
 ```
@@ -56,6 +57,7 @@ kubectl create -f mysql-Deployment.yaml
 **G- Verify Created Deployment**
 ```
 kubectl get deploy
+-------------------output-------------------------------
 NAME    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 mysql   1         1         1            0           44s
 ```
@@ -66,7 +68,7 @@ kubectl create -f mysql-service.yaml
 **I- Verfiry MySQL Service**
 ```
 kubectl get svc
-
+----------------------output----------------------------------------
 NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 mysql        ClusterIP   172.20.53.185   <none>        3306/TCP   50s
 ```
@@ -81,7 +83,7 @@ create -f wordpress-volumeclaim.yaml
 **B- Verify wordpress persistent volume**
 ```
 kubectl get pvc
-
+------------------------------------------output------------------------------------------------------------------------
 NAME                    STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 mysql-volumeclaim       Bound    pvc-3778448a-40c6-11e9-969f-12ba04f5e3ee   2Gi        RWO            gp2            3m
 wordpress-volumeclaim   Bound    pvc-8f0a8655-40c6-11e9-969f-12ba04f5e3ee   2Gi        RWO            gp2            47s
@@ -93,6 +95,7 @@ create -f wordpress-Deployment.yaml
 **D- Verify Wordpress Dployment**
 ```
 kubectl get deploy
+------------------------output------------------------------
 NAME        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 mysql       1         1         1            1           3m
 wordpress   2         2         2            2           28s
@@ -100,7 +103,7 @@ wordpress   2         2         2            2           28s
 **E- Verify running pods***
 ```
 kubectl get pods -o=wide
-
+--------------------------------------------output-------------------------------------------------------------------------
 NAME                         READY   STATUS    RESTARTS   AGE   IP             NODE                           NOMINATED NODE
 mysql-5bfd5f74dd-rcxwn       1/1     Running   0          4m    10.0.132.230   ip-10-0-132-253.ec2.internal   <none>
 wordpress-78c9b8d684-8d69f   1/1     Running   1          43s   10.0.132.239   ip-10-0-132-253.ec2.internal   <none>
@@ -113,6 +116,7 @@ kubectl create -f wordpress-service.yaml
 **G- Verify wordpress Service**
 ```
  kubectl get svc -o=wide
+ -------------output-----------
 
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE   SELECTOR
 kubernetes   ClusterIP      172.20.0.1      <none>                                                                   443/TCP        20m   <none>
@@ -130,38 +134,40 @@ Follow the instruction and finish the installation
 **Additional Commands**
 
 
-**List All Clusters**
+**1- List All Clusters**
 ``
 eksctl get cluster
+-------------output-------------------
 NAME                            REGION
 c-xnh5r                         us-east-1
 eks-test                        us-east-1
 ``
-**List contexts**
+**2- List contexts**
 ```
 kubectl config get-contexts
+-----------output-----------
 CURRENT   NAME                                                    CLUSTER                                         AUTHINFO                                                NAMESPACE
 *         service@eks-test.us-east-1.eksctl.io                    eks-test.us-east-1.eksctl.io                    service@eks-test.us-east-1.eksctl.io 
 ```
 
-**Set default Contexts**
+**3- Set default Contexts**
 ```
 kubectl config use-context service@eks-test.us-east-1.eksctl.io
 ```
 
-**List pods**
+**4- List pods**
 ```
 kubectl get pods
 ```
 
-**Get pods logs**
+**5- Get pods logs**
 ```
 ----------command------------------
 kubectl logs PodName
-----------Example----------
+----------Example--------------------
 kubectl logs wordpress-78c9b8d684-8d69f
 ```
-**Describe pod**
+**6- Describe pod**
 ```
 ----------command------------------
 kubectl describe pod kubectl PodName
