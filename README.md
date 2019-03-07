@@ -156,13 +156,16 @@ kubectl get pods
 
 **Get pods logs**
 ```
+----------command------------------
 kubectl logs PodName
 ----------Example----------
 kubectl logs wordpress-78c9b8d684-8d69f
 ```
 **Describe pod**
 ```
+----------command------------------
 kubectl describe pod kubectl PodName
+
 -----------Example------------------------------------
 kubectl describe pod kubectl wordpress-78c9b8d684-8d69f
 ```
