@@ -127,4 +127,44 @@ Open browser and access wordpress service external address- http://a09a35f1a40c7
 Follow the instruction and finish the installation 
 
 
+**Additional Commands**
+
+
+**List All Clusters**
+``
+eksctl get cluster
+NAME                            REGION
+c-xnh5r                         us-east-1
+eks-test                        us-east-1
+``
+**List contexts**
+```
+kubectl config get-contexts
+CURRENT   NAME                                                    CLUSTER                                         AUTHINFO                                                NAMESPACE
+*         service@eks-test.us-east-1.eksctl.io                    eks-test.us-east-1.eksctl.io                    service@eks-test.us-east-1.eksctl.io 
+```
+
+**Set default Contexts**
+```
+kubectl config use-context service@eks-test.us-east-1.eksctl.io
+```
+
+**List pods**
+```
+kubectl get pods
+```
+
+**Get pods logs**
+```
+kubectl logs PodName
+----------Example----------
+kubectl logs wordpress-78c9b8d684-8d69f
+```
+**Describe pod**
+```
+kubectl describe pod kubectl PodName
+-----------Example------------------------------------
+kubectl describe pod kubectl wordpress-78c9b8d684-8d69f
+```
+
 
