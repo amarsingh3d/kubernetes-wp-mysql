@@ -134,13 +134,13 @@ Follow the instruction and finish the installation
 
 
 **1- List All Clusters**
-``
+```
 eksctl get cluster
 -------------output---------------------
 NAME                            REGION
 c-xnh5r                         us-east-1
 eks-test                        us-east-1
-``
+```
 **2- List contexts**
 ```
 kubectl config get-contexts
