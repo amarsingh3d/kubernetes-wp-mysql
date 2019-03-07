@@ -116,8 +116,7 @@ kubectl create -f wordpress-service.yaml
 **G- Verify wordpress Service**
 ```
  kubectl get svc -o=wide
- -------------output-----------
-
+----------------------------------------------------------output-----------------------------------------------------------------------------------
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE   SELECTOR
 kubernetes   ClusterIP      172.20.0.1      <none>                                                                   443/TCP        20m   <none>
 mysql        ClusterIP      172.20.24.199   <none>                                                                   3306/TCP       5m    app=mysql
@@ -137,7 +136,7 @@ Follow the instruction and finish the installation
 **1- List All Clusters**
 ``
 eksctl get cluster
--------------output-------------------
+-------------output---------------------
 NAME                            REGION
 c-xnh5r                         us-east-1
 eks-test                        us-east-1
@@ -145,7 +144,7 @@ eks-test                        us-east-1
 **2- List contexts**
 ```
 kubectl config get-contexts
------------output-----------
+-------------------------------------------------------------------------output---------------------------------------------------------------------------------------------------
 CURRENT   NAME                                                    CLUSTER                                         AUTHINFO                                                NAMESPACE
 *         service@eks-test.us-east-1.eksctl.io                    eks-test.us-east-1.eksctl.io                    service@eks-test.us-east-1.eksctl.io 
 ```
@@ -162,14 +161,14 @@ kubectl get pods
 
 **5- Get pods logs**
 ```
-----------command------------------
+----------command----------------------
 kubectl logs PodName
-----------Example--------------------
+----------Example----------------------
 kubectl logs wordpress-78c9b8d684-8d69f
 ```
 **6- Describe pod**
 ```
-----------command------------------
+----------command--------------------
 kubectl describe pod kubectl PodName
 
 -----------Example------------------------------------
