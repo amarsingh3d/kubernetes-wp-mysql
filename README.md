@@ -1,6 +1,6 @@
 # Deploy Wordpress and MySQL pods with Persistent Disks
 
-![image] (https://1.bp.blogspot.com/-EV7l9Z5e3ro/XDc54JgpHoI/AAAAAAAAFFc/Xg2ZtO99QGsguaJU6U1lwM53WZTG0c9DQCLcBGAs/s1600/EKS-LAMP.jpg)
+![image](https://1.bp.blogspot.com/-EV7l9Z5e3ro/XDc54JgpHoI/AAAAAAAAFFc/Xg2ZtO99QGsguaJU6U1lwM53WZTG0c9DQCLcBGAs/s1600/EKS-LAMP.jpg)
 
 **Step 1- Create EKS Cluster:**
 
