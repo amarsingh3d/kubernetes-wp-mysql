@@ -119,6 +119,7 @@ wordpress    LoadBalancer   172.20.43.88    a09a35f1a40c711e9818c0ab75c2116c-572
 ```
 
 **Step 5-  Verify Wordpress and MySQL Setup **
+
 Open browser and access wordpress service external address- http://a09a35f1a40c711e9818c0ab75c2116c-572098965.us-east-1.elb.amazonaws.com
 Follow the instruction and finish the installation 
 
